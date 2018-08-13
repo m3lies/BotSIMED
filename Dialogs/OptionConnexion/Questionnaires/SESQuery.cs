@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -17,7 +18,7 @@ namespace TrevorBot
         private const string quiteOkay = "Indifférent";
         private const string notOkay = "Pas d'accord";
         private const string notAllOkay = "Pas du tout  d'accord";
-        public enum SatisfactionOption { ToutÁFaitDAccord, DAccord, Indifférent, PasDAccord, PasDuToutDAccord };
+        public enum SatisfactionOption { [DescriptionAttribute("Tout à fait d'accord")] ToutÁFaitDAccord, DAccord, Indifférent, PasDAccord, PasDuToutDAccord };
         public enum SexeOption { Masculin, Féminin, Autre }
         public List<string> SatisfactionOpt = new List<string>() { allOkay, okay, quiteOkay, notOkay, notAllOkay };
         
@@ -27,7 +28,7 @@ namespace TrevorBot
         }*/
         [Prompt("Quel âge as-tu ?")]
         public string Age { get; set; }
-        [Prompt("De quel sexe es tu ?")]
+        [Prompt("De quel sexe es tu ? {||}")]
         public SexeOption? Sexe;
 
         [Prompt("Quel est le plus haut niveau d'éducation que tu aies achevé?")]
@@ -37,8 +38,8 @@ namespace TrevorBot
 
         
 
-        [Prompt("En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait?")]
-        public SatisfactionOption? Dissatisfaction;
+        [Prompt("En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait? {||}")]
+        public  SatisfactionOption ? Dissatisfaction;
 
         [Prompt("En général, je suis capable de transformer mes objectifs en matière de gestion quotidienne de la drépanocytose en un plan réalisable.")]
         public SatisfactionOption? WorkablePlan;
