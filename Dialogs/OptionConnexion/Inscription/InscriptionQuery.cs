@@ -11,6 +11,7 @@ namespace TrevorBot
 
     {
         [Prompt("Ok, écris moi donc ton addresse {&} :")]
+        [Pattern(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$")]
         public string Mail { get; set; }
         [Prompt("Super, maintenant choisis un {&}")]
         public string MotDePasse { get; set; }

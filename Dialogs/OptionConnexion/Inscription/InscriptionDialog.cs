@@ -26,6 +26,7 @@ namespace TrevorBot.Dialogs
 
             OnCompletionAsyncDelegate<InscriptionQuery> processRegister = async (context, state) =>
             {
+              
                 await context.PostAsync($"Ok. Voici l'adresse mail que tu as entré : {state.Mail}, ainsi que le pseudonyme : {state.Pseudo} est-ce exact? ");
                 context.Wait(this.MessageReceivedAsync);
                 context.Call(new SESForm(), this.ResumeAfterValidationInscrptionDialog);
