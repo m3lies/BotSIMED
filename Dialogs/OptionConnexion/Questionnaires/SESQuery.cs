@@ -44,16 +44,21 @@ namespace TrevorBot
         }
       
         public enum SatisfactionOption {
-            [Display(Name = "Excellent")]
-            ToutAFAitDAccord =1 ,
-            [Display(Name = "D'accord")]
-            DAccord = 2,
-            [Display(Name = "Indifférent")]
+            [Describe("Tout à fait d'accord")]
+            [Terms("Tout à fait d'accord")]
+            AllOKay =1 ,
+            [Describe("D'accord")]
+            [Terms("D'accord")]
+            Daccord = 2,
+            [Describe("Indifférent")]
+            [Terms("Indifférent")]
             Indifferent = 3,
-            [Display(Name = "Pas d'accord")]
+            [Describe("Pas d'accord")]
+            [Terms("Pas d'accord")]
             PasDAccord = 4,
-            [Display(Name = "Pas du tout d'accord")]
-            PasDuToutDAccord =5
+            [Describe("Pas du tout d'accord")]
+            [Terms("Pas du tout d'accord")]
+            PasDaccordDutout =5,
         };
 
         //public List<string> SatisfactionOpt = new List<string>() { allOkay, okay, quiteOkay, notOkay, notAllOkay };
