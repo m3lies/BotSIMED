@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using TrevorBot.Dialogs.OptionConnexion.DataChart;
 
 namespace TrevorBot.Dialogs
 {
@@ -45,10 +46,28 @@ namespace TrevorBot.Dialogs
             await context.PostAsync("Bienvenue dans le questionnaire SES");
         }
 
+        public async Task GetChart(IDialogContext context, IAwaitable<IMessageActivity> activity)
+        {
+            // Some mechanism for retrieving data
+
+            var data = RadarChart.GetData();
+
+            // Call the chart method
+
+            var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
+
+            var message = context.MakeMessage();
+            var attachment = new Attachment(contentType: "image/png", contentUrl: null);
+            message.Attachments.Add(attachment);
+
+            await context.PostAsync(message);
+            context.Wait(this.MessageReceivedAsync);
+        }
         public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result)
         {
-            await context.PostAsync("Merci d'avoir rempli ce questionnaire");
+            await context.PostAsync("Merci d'avoir rempli ce questionnaire voici tes résultats");
            //                   context.Done(this.SESFormQuery);
+
         }
 
 
