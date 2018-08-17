@@ -50,8 +50,11 @@ namespace TrevorBot.Dialogs
         {
             // Some mechanism for retrieving data
 
-            var data = RadarChart.GetData();
 
+            var data = new int[] {1,15,20};
+
+         //   var resultFromNewOrder = await activity;
+         //   await context.PostAsync($"Inscription dialog just said this {resultFromNewOrder} - Retour sur Root");
             // Call the chart method
 
             var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
