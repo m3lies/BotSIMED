@@ -42,7 +42,8 @@ namespace TrevorBot
             [Describe("Thanks , I dont want any Food")]
             No = 4
         }
-      
+
+        //Mettre Describe pour le format dans le choix, et terms pour les seules valeurs acceptées 
         public enum SatisfactionOption {
             [Describe("Tout à fait d'accord")]
             [Terms("Tout à fait d'accord")]

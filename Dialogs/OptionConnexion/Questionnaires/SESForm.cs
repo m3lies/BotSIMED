@@ -25,7 +25,7 @@ namespace TrevorBot.Dialogs
             var SesFormDialog = FormDialog.FromForm(this.BuildSESForm, FormOptions.PromptInStart);
             context.Call(SesFormDialog, this.ResumeAfterSESFormDialog);
         }
-
+               
         
         private void SESFormQuery(IDialogContext context)
         {
@@ -47,7 +47,8 @@ namespace TrevorBot.Dialogs
 
         public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result)
         {
-
+            await context.PostAsync("Merci d'avoir rempli ce questionnaire");
+           //                   context.Done(this.SESFormQuery);
         }
 
 
