@@ -34,6 +34,7 @@ namespace TrevorBot.Dialogs
             };
 
             return new FormBuilder<InscriptionQuery>()
+
                 .AddRemainingFields()        
                // .OnCompletion(processRegister)
                 .Confirm("Ok. Voici l'adresse mail que tu as entré : {Mail}, ainsi que le pseudonyme : {Pseudo} est-ce exact? ")
@@ -67,8 +68,10 @@ namespace TrevorBot.Dialogs
 
         private async Task ResumeAfterValidationInscrptionDialog(IDialogContext context, IAwaitable<string> result)
         {
+            var message = await result;
             context.Wait(this.MessageReceivedAsync);
-            await context.PostAsync(" Merci de t'être inscrit Validation ");
+            await context.PostAsync(" Merci de t'être inscrit Validation d'inscription");
+            context.Call(new SESForm(), ResumeAfterValidationInscrptionDialog);
         }
     }
 }

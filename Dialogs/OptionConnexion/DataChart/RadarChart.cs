@@ -9,8 +9,8 @@ namespace TrevorBot.Dialogs.OptionConnexion.DataChart
     public class RadarChart
     {
         private string[] themes = new string[] {"Satisfaction", "Réalisation", "Barrière"," Face au stress", "Soutien", "Motivation", "Connaissance", "Changement" };
-
-        public string GetLineChart(Dictionary<DateTime, double> points, string title)
+        Dictionary<string, int> resultats = new Dictionary<string, int>();
+        public string GetLineChart(Dictionary<string, int> points, string title)
         {
             // Create a series and add data points to it
             var series = new Series("Chart");

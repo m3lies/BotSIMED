@@ -19,6 +19,8 @@ namespace TrevorBot.Dialogs
         private const string notOkay = "Pas d'accord";
         private const string notAllOkay = "Pas du tout  d'accord";
         private List<string> SatisfactionOpt = new List<string>() { allOkay, okay, quiteOkay, notOkay, notAllOkay };
+
+        public Dictionary<string, int> dictionary = new Dictionary<string, int>();
         public async Task StartAsync(IDialogContext context)
         {
             await context.PostAsync("Bienvenue dans le SES Quizz Form");
@@ -28,36 +30,33 @@ namespace TrevorBot.Dialogs
         }
                
         
-        private void SESFormQuery(IDialogContext context)
-        {
-            PromptDialog.Choice(context, null, SatisfactionOpt, "En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait?", "Cecic n'est pas une option valide", 3);
-           //   PromptDialog.Choice(context, null, SatisfactionOpt, "En général, je suis capable de transformer mes objectifs en matière de gestion quotidienne de la drépanocytose en un plan réalisable.", "Cecic n'est pas une option valide", 3);
-        }
-        
         private IForm<SESQuery> BuildSESForm()
         {
             return new FormBuilder<SESQuery>()
+                .Field(nameof(SESQuery.Age))
+                .Field(nameof(SESQuery.Sexe))
+                .Field(nameof(SESQuery.Education))
                 .AddRemainingFields()
                 .Build();
         }
 
         public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            await context.PostAsync("Bienvenue dans le questionnaire SES");
+            await context.PostAsync("Bienvenue dans le questionnaire SES, afin de mieux faire connaissance, voici 11 questions auxquelles il faudrait que tu répondes, ca ne te prendra que 5 minutes.");
         }
 
         public async Task GetChart(IDialogContext context, IAwaitable<IMessageActivity> activity)
         {
             // Some mechanism for retrieving data
 
-
+            // var data = getData();
             var data = new int[] {1,15,20};
 
          //   var resultFromNewOrder = await activity;
          //   await context.PostAsync($"Inscription dialog just said this {resultFromNewOrder} - Retour sur Root");
             // Call the chart method
 
-            var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
+           // var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
 
             var message = context.MakeMessage();
             var attachment = new Attachment(contentType: "image/png", contentUrl: null);
@@ -68,14 +67,14 @@ namespace TrevorBot.Dialogs
         }
         public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result)
         {
+            var message = await result;
             await context.PostAsync("Merci d'avoir rempli ce questionnaire voici tes résultats");
-           //                   context.Done(this.SESFormQuery);
+           context.Done(message.Sexe);
 
         }
 
 
-
-        
+              
 
 
 

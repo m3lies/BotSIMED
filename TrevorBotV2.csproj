@@ -435,14 +435,15 @@
     <Compile Include="Dialogs\OptionConnexion\Connexion\MailDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringForm.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringQuery.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESQuery2.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESForm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESQuery.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
