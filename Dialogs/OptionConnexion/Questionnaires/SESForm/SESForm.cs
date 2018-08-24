@@ -23,7 +23,7 @@ namespace TrevorBot.Dialogs
         public Dictionary<string, int> dictionary = new Dictionary<string, int>();
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Bienvenue dans le SES Quizz Form");
+            await context.PostAsync("Bienvenue dans le SES Quizz Form, afin de mieux faire connaissance, voici 11 questions auxquelles il faudrait que tu répondes, ca ne te prendra que 5 minutes.");
             //this.SESFormQuery(context);
             var SesFormDialog = FormDialog.FromForm(this.BuildSESForm, FormOptions.PromptInStart);
             context.Call(SesFormDialog, this.ResumeAfterSESFormDialog);
@@ -42,7 +42,7 @@ namespace TrevorBot.Dialogs
 
         public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-            await context.PostAsync("Bienvenue dans le questionnaire SES, afin de mieux faire connaissance, voici 11 questions auxquelles il faudrait que tu répondes, ca ne te prendra que 5 minutes.");
+            await context.PostAsync("Bienvenue dans le questionnaire SES");
         }
 
         public async Task GetChart(IDialogContext context, IAwaitable<IMessageActivity> activity)

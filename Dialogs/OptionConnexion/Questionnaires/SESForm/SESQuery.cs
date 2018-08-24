@@ -22,14 +22,15 @@ namespace TrevorBot
 
         Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
-        [Prompt("Quel âge as-tu ?")]
+        [Prompt("1. Quel âge as-tu ?")]
+        [Pattern("")]
         public string Age { get; set; }
 
         public enum SexeOption { Masculin, Féminin, Autre }
-        [Prompt("De quel sexe es tu ? {||}")]
+        [Prompt("2. De quel sexe es tu ? {||}")]
         public SexeOption? Sexe;
 
-        [Prompt("Quel est le plus haut niveau d'éducation que tu aies achevé?")]
+        [Prompt("3. Quel est le plus haut niveau d'éducation que tu aies achevé?")]
         public string Education { get; set; }
 
 
@@ -62,27 +63,27 @@ namespace TrevorBot
 
         //private async Task AskQuestionAsync(IDialogContext context) { PromptDialog.Choice(context, null, SatisfactionOpt, "Tout d'abord dis moi ce que tu veux faire", "Cecic n'est pas une option valide", 3);  }
 
-        [Prompt("En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait? {||}")]
+        [Prompt("4. En matière de gestion de la drépanocytose, je pense savoir quels sont les aspects dont je suis insatisfait? {||}")]
         public  SatisfactionOption ? Dissatisfaction;
 
-        [Prompt("En général, je suis capable de transformer mes objectifs en matière de gestion quotidienne de la drépanocytose en un plan réalisable. {||}")]
+        [Prompt("5. En général, je suis capable de transformer mes objectifs en matière de gestion quotidienne de la drépanocytose en un plan réalisable. {||}")]
         public SatisfactionOption? WorkablePlan;
 
-        [Prompt("En général, je pense pouvoir essayer différentes manières pour surmonter les obstacles qui entravent l'atteinte de mes objectifs en matière de gestion de la drépanocytose {||}")]
+        [Prompt("6. En général, je pense pouvoir essayer différentes manières pour surmonter les obstacles qui entravent l'atteinte de mes objectifs en matière de gestion de la drépanocytose {||}")]
         public SatisfactionOption? BarriersOvercoming;
 
-        [Prompt("En général, je pense connaître les moyens positifs que j'utilise pour faire face au stress que provoque la drépanocytose {||}")]
+        [Prompt("7. En général, je pense connaître les moyens positifs que j'utilise pour faire face au stress que provoque la drépanocytose {||}")]
         public SatisfactionOption? PositiveCopingStress;
 
-        [Prompt("Lorsque j'en ai besoin, je pense pouvoir demander du soutien pour vivre avec et prendre soin de ma drépanocytose {||}")]
+        [Prompt("8. Lorsque j'en ai besoin, je pense pouvoir demander du soutien pour vivre avec et prendre soin de ma drépanocytose {||}")]
         public SatisfactionOption? SupportCaring;
-        [Prompt("En général, je sais ce qui m'aide à rester motiver pour prendre soin de ma drépanocytose {||}")]
+        [Prompt("9.En général, je sais ce qui m'aide à rester motiver pour prendre soin de ma drépanocytose {||}")]
         public SatisfactionOption? MotivationalMaintenance;
 
-        [Prompt("En général, j'en sais suffisamment sur la drépanocytose pour choisir ce qui est bon pour moi {||}")]
+        [Prompt("10.En général, j'en sais suffisamment sur la drépanocytose pour choisir ce qui est bon pour moi {||}")]
         public SatisfactionOption? SelfCareKnowledgeInformedChoices;
 
-        [Prompt("En général, je suis capable de comprendre si cela vaut la peine de changer ma façon de prendre soin de ma drépanocytose {||}")]
+        [Prompt("11.En général, je suis capable de comprendre si cela vaut la peine de changer ma façon de prendre soin de ma drépanocytose {||}")]
         public SatisfactionOption? ChangeCareKnowledge;
     }
 
