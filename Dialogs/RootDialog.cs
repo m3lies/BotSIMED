@@ -49,7 +49,7 @@ namespace TrevorBot.Dialogs
                         //Sign-in card : https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-add-rich-card-attachments?view=azure-bot-service-3.0
                         break;
                     case InscriptionOption:
-                        context.Call(new InscriptionDialog(), this.ResumeAfterQuestionnaire);
+                        context.Call(new SESForm(), this.ResumeAfterQuestionnaire);
                         break;
                 }
 

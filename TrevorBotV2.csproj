@@ -435,7 +435,7 @@
     <Compile Include="Dialogs\OptionConnexion\Connexion\MailDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringForm.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringQuery.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESQuery2.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESResults.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESForm.cs" />
     <Compile Include="Global.asax.cs">

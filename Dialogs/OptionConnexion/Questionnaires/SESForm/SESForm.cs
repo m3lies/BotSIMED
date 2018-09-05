@@ -2,6 +2,7 @@
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Connector;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace TrevorBot.Dialogs
         private const string notOkay = "Pas d'accord";
         private const string notAllOkay = "Pas du tout  d'accord";
         private List<string> SatisfactionOpt = new List<string>() { allOkay, okay, quiteOkay, notOkay, notAllOkay };
-
+        private List<int> ListeReponsesItems = new List<int>() { };
         public Dictionary<string, int> dictionary = new Dictionary<string, int>();
         public async Task StartAsync(IDialogContext context)
         {
@@ -32,11 +33,24 @@ namespace TrevorBot.Dialogs
         
         private IForm<SESQuery> BuildSESForm()
         {
-            return new FormBuilder<SESQuery>()
+            OnCompletionAsyncDelegate<SESQuery> processResult = async (context, state) =>
+                {
+                    await context.PostAsync($"Merci d'avoir rempli ce questionnaire voici tes résultats : ");
+                    await context.PostAsync("Sexe : "+ state.Sexe);
+                    await context.PostAsync("Age : " + state.Age);
+                    await context.PostAsync("BarriersOvercoming : " + (int)state.BarriersOvercoming);
+                    await context.PostAsync(" MotivationalMaintenance : " + (int)state.MotivationalMaintenance);
+                    ListeReponsesItems.Add((int)state.BarriersOvercoming);
+                    ListeReponsesItems.Add((int)state.MotivationalMaintenance);
+                    int total = ListeReponsesItems.Sum(x => Convert.ToInt32(x));
+                    await context.PostAsync("Total : "+ total+" Moyenne : " + (double)total/ListeReponsesItems.Count);
+                };
+            return new FormBuilder<SESQuery>() // mettre la priorité sur des questions : .Field(nameof(...))
                 .Field(nameof(SESQuery.Age))
                 .Field(nameof(SESQuery.Sexe))
                 .Field(nameof(SESQuery.Education))
                 .AddRemainingFields()
+                .OnCompletion(processResult)
                 .Build();
         }
 
@@ -68,8 +82,9 @@ namespace TrevorBot.Dialogs
         public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result)
         {
             var message = await result;
-            await context.PostAsync("Merci d'avoir rempli ce questionnaire voici tes résultats");
-           context.Done(message.Sexe);
+
+
+            //context.Done();
 
         }
 
