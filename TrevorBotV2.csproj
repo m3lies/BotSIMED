@@ -428,13 +428,14 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Dialogs\MenuDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Connexion\ConnexionDialog.cs" />
     <Compile Include="Dialogs\EchoDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\DataChart\RadarChart.cs" />
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Connexion\MailDialog.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringForm.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringQuery.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitForm.cs" />
+    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitQuery.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESResults.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm\SESForm.cs" />

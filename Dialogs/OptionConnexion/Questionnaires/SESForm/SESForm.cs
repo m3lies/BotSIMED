@@ -40,8 +40,18 @@ namespace TrevorBot.Dialogs
                     await context.PostAsync("Age : " + state.Age);
                     await context.PostAsync("BarriersOvercoming : " + (int)state.BarriersOvercoming);
                     await context.PostAsync(" MotivationalMaintenance : " + (int)state.MotivationalMaintenance);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        //ListeReponsesItems.Add((int)state.);
+                    }
+                    ListeReponsesItems.Add((int)state.Dissatisfaction);
+                    ListeReponsesItems.Add((int)state.WorkablePlan);
                     ListeReponsesItems.Add((int)state.BarriersOvercoming);
+                    ListeReponsesItems.Add((int)state.PositiveCopingStress);
+                    ListeReponsesItems.Add((int)state.SupportCaring);
                     ListeReponsesItems.Add((int)state.MotivationalMaintenance);
+                    ListeReponsesItems.Add((int)state.SelfCareKnowledgeInformedChoices);
+                    ListeReponsesItems.Add((int)state.ChangeCareKnowledge);
                     int total = ListeReponsesItems.Sum(x => Convert.ToInt32(x));
                     await context.PostAsync("Total : "+ total+" Moyenne : " + (double)total/ListeReponsesItems.Count);
                 };
@@ -64,13 +74,13 @@ namespace TrevorBot.Dialogs
             // Some mechanism for retrieving data
 
             // var data = getData();
-            var data = new int[] {1,15,20};
+            var data = ListeReponsesItems;
 
          //   var resultFromNewOrder = await activity;
          //   await context.PostAsync($"Inscription dialog just said this {resultFromNewOrder} - Retour sur Root");
-            // Call the chart method
+         // Call the chart method
 
-           // var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
+            // var chartDataUrl = RadarChart.GetLineChart(data, "Chart Title");
 
             var message = context.MakeMessage();
             var attachment = new Attachment(contentType: "image/png", contentUrl: null);

@@ -23,14 +23,14 @@ namespace TrevorBot
         Dictionary<string, int> dictionary = new Dictionary<string, int>();
 
         [Prompt("1. Quel âge as-tu ?")]
-        [Pattern("")]
+        [Pattern("([1-9]|[1-8][0-9]|9[0-9]|1[01][0-9]|120)")]
         public string Age { get; set; }
 
         public enum SexeOption { Masculin, Féminin, Autre }
         [Prompt("2. De quel sexe es tu ? {||}")]
         public SexeOption? Sexe;
 
-        [Prompt("3. Quel est le plus haut niveau d'éducation que tu aies achevé?")]
+        [Prompt("3. Quel est le plus haut niveau d'éducation que tu aies achevé?")] // NE PAS OUBLIER
         public string Education { get; set; }
 
 
