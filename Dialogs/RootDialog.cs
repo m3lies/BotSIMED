@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using TrevorBot.Dialogs.OptionConnexion.Questionnaires;
 
 namespace TrevorBot.Dialogs
 {
@@ -22,9 +23,9 @@ namespace TrevorBot.Dialogs
         public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
             var message = await result;
-            await this.SendAuthMessageAsync(context);
+            await this.ConnexionMessageAsync(context);
         }
-        private async Task SendAuthMessageAsync(IDialogContext context)
+        private async Task ConnexionMessageAsync(IDialogContext context)
         {
             await context.PostAsync("Bonjour mon nom est Trevor. Je peux t'aider à mieux gérer ta drépanocytose ! ");
             this.ShowMenuOption(context);
@@ -49,7 +50,7 @@ namespace TrevorBot.Dialogs
                         //Sign-in card : https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-add-rich-card-attachments?view=azure-bot-service-3.0
                         break;
                     case InscriptionOption:
-                        context.Call(new MenuDialog(), this.ResumeAfterQuestionnaire);
+                        context.Call(new SESForm(), this.ResumeAfterQuestionnaire);
                         break;
                 }
 
