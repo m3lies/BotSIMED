@@ -19,35 +19,34 @@ namespace TrevorBot
         private const string quiteOkay = "Indifférent";
         private const string notOkay = "Pas d'accord";
         private const string notAllOkay = "Pas du tout  d'accord"; */
-
-        [Prompt("Quel âge as-tu ?")]
-        public string Age { get; set; }
-
-        public enum SexeOption { Masculin, Féminin, Autre }
-        [Prompt("De quel sexe es tu ? {||}")]
-        public SexeOption? Sexe;
-
-        [Prompt("Quel est le plus haut niveau d'éducation que tu aies achevé?")]
-        public string Education { get; set; }
-        public enum Food
+        public enum Education
         {
-            [Describe("Yes, I want South indian meal")]
-            SMeal = 1,
 
-            [Describe("Yes, I want South North Indain meal")]
-            NMeal = 2,
+            [Describe("Primaire")]
+            [Terms("Primaire")]
+            AllOKay = 1,
+            [Describe("Cycle/Collège")]
+            [Terms("Cycle/Collège")]
+            Daccord = 2,
+            [Describe("Gymnase / Lycée")]
+            [Terms("Gymnase / Lycée")]
+            Indifferent = 3,
+            [Describe("Bachelor")]
+            [Terms("Bachelor")]
+            PasDAccord = 4,
+            [Describe("Master")]
+            [Terms("Pas du tout d'accord")]
+            PasDaccordDutout = 5,
+            [Describe("Docotorat")]
+            [Terms("Docotorat")]
+            Doctorat = 6,
+        };
 
-            [Describe("Yes , I want Fruits")]
-            Fruts = 3,
-            [Describe("Thanks , I dont want any Food")]
-            No = 4
-        }
-
-        //Mettre Describe pour le format dans le choix, et terms pour les seules valeurs acceptées 
-        public enum SatisfactionOption {
+        public enum SatisfactionOption
+        {
             [Describe("Tout à fait d'accord")]
             [Terms("Tout à fait d'accord")]
-            AllOKay =1 ,
+            AllOKay = 1,
             [Describe("D'accord")]
             [Terms("D'accord")]
             Daccord = 2,
@@ -59,8 +58,20 @@ namespace TrevorBot
             PasDAccord = 4,
             [Describe("Pas du tout d'accord")]
             [Terms("Pas du tout d'accord")]
-            PasDaccordDutout =5,
+            PasDaccordDutout = 5,
         };
+        [Prompt("Quel âge as-tu ?")]
+        public string Age { get; set; }
+
+        public enum SexeOption { Masculin, Féminin, Autre }
+        [Prompt("De quel sexe es tu ? {||}")]
+        public SexeOption? Sexe;
+
+        [Prompt("Quel est le plus haut niveau d'éducation que tu aies achevé?")]
+
+        public Education? NivEducation;
+        //Mettre Describe pour le format dans le choix, et terms pour les seules valeurs acceptées 
+
 
         //public List<string> SatisfactionOpt = new List<string>() { allOkay, okay, quiteOkay, notOkay, notAllOkay };
         

@@ -431,16 +431,16 @@
     <Compile Include="Dialogs\EchoDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Connexion\MailDialog.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringForm.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoringQuery.cs" />
+    <Compile Include="Dialogs\Questionnaires\SelfMonitoring\SelfMonitoringForm.cs" />
+    <Compile Include="Dialogs\Questionnaires\SelfMonitoring\SelfMonitoringQuery.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESForm.cs" />
+    <Compile Include="Dialogs\Questionnaires\SES\SESForm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dialogs\OptionConnexion\Questionnaires\SESQuery.cs" />
+    <Compile Include="Dialogs\Questionnaires\SES\SESQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

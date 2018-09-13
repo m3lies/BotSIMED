@@ -22,7 +22,7 @@ namespace TrevorBot.Dialogs.OptionConnexion.Questionnaires
         [Prompt("Comment te sens-tu maintenant ?")]
         public string Feeling { get; set; }
 
-        [Prompt("Quelle quantité d'eau (ou autre) as-tu bu aujourd'hui ?")]
+        /*[Prompt("Quelle quantité d'eau (ou autre) as-tu bu aujourd'hui ?")]
         public string QteEau { get; set; } 
 
         [Prompt("As-tu bu au moins 4 litres d'eau [hommes] ou 3 litres [de femmes] à intervalles réguliers?")]
@@ -40,7 +40,7 @@ namespace TrevorBot.Dialogs.OptionConnexion.Questionnaires
         //Une douche, un bain chaud
 
         public Boolean BoucheSeche { get; set; }
-
+        */
            
     }
 }   
