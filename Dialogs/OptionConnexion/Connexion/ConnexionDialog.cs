@@ -9,7 +9,7 @@ using System.Web;
 namespace TrevorBot.Dialogs
 {
     [Serializable]
-    public class ConnexionDialog : IDialog<string>
+    public class ConnexionDialog : IDialog<string> // dialogue pour se connecter
     {
         private const string FacebookOption = "FaceBook";
         private const string MailOption = "Mail";
@@ -72,7 +72,7 @@ namespace TrevorBot.Dialogs
             }
         }
 
-        private async Task ResumeAfterConnexionDialog(IDialogContext context, IAwaitable<object> result)
+        private async Task ResumeAfterConnexionDialog(IDialogContext context, IAwaitable<object> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
             try
             {

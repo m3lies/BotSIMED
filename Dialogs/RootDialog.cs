@@ -15,20 +15,20 @@ namespace TrevorBot.Dialogs
 
         private const string ConnexionOption = "Me connecter";
         private const string InscriptionOption = "M'inscrire";
-        public async Task StartAsync(IDialogContext context)
+        public async Task StartAsync(IDialogContext context) //ce qui démarre à l'initialisation du dialogue
         {
             context.Wait(MessageReceivedAsync);
         }
 
-        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result) //attend le message
         {
             var message = await result;
-            await this.ConnexionMessageAsync(context);
+            await this.ConnexionMessageAsync(context); //appelle la connexion 
         }
         private async Task ConnexionMessageAsync(IDialogContext context)
         {
             await context.PostAsync("Bonjour mon nom est Trevor. Je peux t'aider à mieux gérer ta drépanocytose ! ");
-            this.ShowMenuOption(context);
+            this.ShowMenuOption(context); //appelle le choix de menu, je sais pas pourquoi, mais j'ai essayé de faire sans ces deux étapes sucessives et ca ne marchait plus.
         }
 
         private void ShowMenuOption(IDialogContext context)
@@ -41,7 +41,7 @@ namespace TrevorBot.Dialogs
             try
             {
                 string optionSelected = await result;
-                switch (optionSelected)
+                switch (optionSelected) //une fois que l'option a été selectionnée, on ouvre un nouveau dialogue 
                 {
 
                     case ConnexionOption:
@@ -64,7 +64,7 @@ namespace TrevorBot.Dialogs
             }
         }
 
-        private async Task ResumeAfterQuestionnaire(IDialogContext context, IAwaitable<string> result)
+        private async Task ResumeAfterQuestionnaire(IDialogContext context, IAwaitable<string> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
 
             try

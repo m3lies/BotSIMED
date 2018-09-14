@@ -23,7 +23,7 @@ namespace Controllers.TrevorBot
             // check if activity is of type message
             if (activity != null && activity.GetActivityType() == ActivityTypes.Message)
             {
-                await Conversation.SendAsync(activity, () => new RootDialog());
+                await Conversation.SendAsync(activity, () => new RootDialog()); //initialisation du RootDialog
             }
             else
             {
@@ -31,7 +31,7 @@ namespace Controllers.TrevorBot
             }
             return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
-
+        
         private Activity HandleSystemMessage(Activity message)
         {
             if (message.Type == ActivityTypes.DeleteUserData)

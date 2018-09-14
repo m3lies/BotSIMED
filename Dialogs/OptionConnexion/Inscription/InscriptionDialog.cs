@@ -10,18 +10,18 @@ using System.Web;
 namespace TrevorBot.Dialogs
 {
     [Serializable]
-    public class InscriptionDialog : IDialog<string>
+    public class InscriptionDialog : IDialog<string> //dialogue d'inscrption
     {
         public async Task StartAsync(IDialogContext context)
         {
             await context.PostAsync("Merci de bien vouloir t'inscrire !");
 
-            var inscriptionFormDialog = FormDialog.FromForm(this.BuildInscriptionForm, FormOptions.PromptInStart);
+            var inscriptionFormDialog = FormDialog.FromForm(this.BuildInscriptionForm, FormOptions.PromptInStart); //initialise un form flow (le truc qui va appeler tes questions)
 
             context.Call(inscriptionFormDialog, this.ResumeAfterInscriptionFormDialog);
         }
 
-        private IForm<InscriptionQuery> BuildInscriptionForm()
+        private IForm<InscriptionQuery> BuildInscriptionForm() //IForm de type inscription query
         {
 
             OnCompletionAsyncDelegate<InscriptionQuery> processRegister = async (context, state) =>
@@ -33,7 +33,7 @@ namespace TrevorBot.Dialogs
 
             };
 
-            return new FormBuilder<InscriptionQuery>()
+            return new FormBuilder<InscriptionQuery>() // là où on peut customiser le FormBuiler avec des Field, des onCompletion ou validate/confirm
 
                 .AddRemainingFields()        
                // .OnCompletion(processRegister)
@@ -66,7 +66,7 @@ namespace TrevorBot.Dialogs
 
         }
 
-        private async Task ResumeAfterValidationInscrptionDialog(IDialogContext context, IAwaitable<string> result)
+        private async Task ResumeAfterValidationInscrptionDialog(IDialogContext context, IAwaitable<string> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
             var message = await result;
             context.Wait(this.MessageReceivedAsync);

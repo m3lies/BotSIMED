@@ -26,7 +26,7 @@ namespace TrevorBot.Dialogs
         }
                
         
-        private IForm<SESQuery> BuildSESForm()
+        private IForm<SESQuery> BuildSESForm() // là où on peut customiser le FormBuiler avec des Field, des onCompletion ou validate/confirm
         {
             OnCompletionAsyncDelegate<SESQuery> processResult = async (context, state) =>
                 {
@@ -60,7 +60,7 @@ namespace TrevorBot.Dialogs
                 .Build();
         }
 
-        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result) // pas utilisée dans ce cas
         {
             await context.PostAsync("Bienvenue dans le questionnaire SES");
         }

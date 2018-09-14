@@ -21,7 +21,7 @@ namespace TrevorBot.Dialogs.OptionConnexion.Questionnaires
 
         }
 
-        private IForm<SelfMonitQuery> BuildSelfForm()
+        private IForm<SelfMonitQuery> BuildSelfForm() // là où on peut customiser le FormBuiler avec des Field, des onCompletion ou validate/confirm
         {
             OnCompletionAsyncDelegate<SelfMonitQuery> processResult = async (context, state) =>
             {
@@ -35,12 +35,12 @@ namespace TrevorBot.Dialogs.OptionConnexion.Questionnaires
                 .Build();
         }
 
-        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
+        public async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result) //pas utilisée dans ce cas, mais bon ...
         {
             await context.PostAsync("Bienvenue dans le questionnaire SelfMonitoring");
         }
 
-        public async Task ResumeAfterSelfFormDialog(IDialogContext context, IAwaitable<SelfMonitQuery> result)
+        public async Task ResumeAfterSelfFormDialog(IDialogContext context, IAwaitable<SelfMonitQuery> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
             var message = await result;
             context.Done(message);
@@ -49,4 +49,4 @@ namespace TrevorBot.Dialogs.OptionConnexion.Questionnaires
 
         }
     }
-}
+}          
