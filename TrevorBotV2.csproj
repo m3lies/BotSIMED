@@ -434,17 +434,28 @@
     <Compile Include="Dialogs\OptionConnexion\DataChart\RadarChart.cs" />
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Connexion\MailDialog.cs" />
+<<<<<<< HEAD
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoring\SelfMonitForm.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SelfMonitoring\SelfMonitQuery.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SES\SESResults.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SES\SESForm.cs" />
+=======
+    <Compile Include="Dialogs\Questionnaires\SelfMonitoring\SelfMonitoringForm.cs" />
+    <Compile Include="Dialogs\Questionnaires\SelfMonitoring\SelfMonitoringQuery.cs" />
+    <Compile Include="Dialogs\RootDialog.cs" />
+    <Compile Include="Dialogs\Questionnaires\SES\SESForm.cs" />
+>>>>>>> c686cdc87d1b405b7767e7e03ad315bd40f91c0f
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\OptionConnexion\Inscription\InscriptionQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Dialogs\OptionConnexion\Questionnaires\SES\SESQuery.cs" />
+=======
+    <Compile Include="Dialogs\Questionnaires\SES\SESQuery.cs" />
+>>>>>>> c686cdc87d1b405b7767e7e03ad315bd40f91c0f
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
