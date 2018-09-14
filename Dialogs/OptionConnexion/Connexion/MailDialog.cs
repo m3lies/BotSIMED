@@ -9,7 +9,7 @@ using System.Web;
 namespace TrevorBot.Dialogs
 {
     [Serializable]
-    public class MailDialog : IDialog<object>
+    public class MailDialog : IDialog<object> //Connexion lorsqu'un mail est choisi
     {
 
         public async Task StartAsync(IDialogContext context)
@@ -29,7 +29,7 @@ namespace TrevorBot.Dialogs
             }
         }
 
-        public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument)
+        public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument) 
         {
             var confirm = await argument;
             if (confirm)
