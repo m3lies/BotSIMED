@@ -62,7 +62,7 @@ namespace TrevorBot.Dialogs
         {
             var message = await result;
             await context.PostAsync(" Merci de t'être inscrit ");
-            context.Call(new MenuDialog(), ResumeAfterValidationInscrptionDialog);
+            context.Call(new SESForm(), ResumeAfterValidationInscrptionDialog);
 
         }
 

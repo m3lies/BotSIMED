@@ -50,7 +50,8 @@ namespace TrevorBot.Dialogs
                     int total = ListeReponsesItems.Sum(x => Convert.ToInt32(x));
                     await context.PostAsync("Total : "+ total+" Moyenne : " + (double)total/ListeReponsesItems.Count);
                 };
-            return new FormBuilder<SESQuery>() // mettre la priorité sur des questions : .Field(nameof(...))
+            //// là où on peut customiser le FormBuiler avec des Field, des onCompletion ou validate/confirm
+            return new FormBuilder<SESQuery>() // mettre la priorité sur des questions : .Field(nameof(...)) 
                 .Field(nameof(SESQuery.Age))
                 .Field(nameof(SESQuery.Sexe))
                 .Field(nameof(SESQuery.Education))
@@ -84,7 +85,7 @@ namespace TrevorBot.Dialogs
             await context.PostAsync(message);
             context.Wait(this.MessageReceivedAsync);
         }*/
-        public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result)
+        public async Task ResumeAfterSESFormDialog(IDialogContext context, IAwaitable<SESQuery> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
             var message = await result;
 
