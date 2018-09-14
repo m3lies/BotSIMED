@@ -65,7 +65,7 @@ namespace TrevorBot.Dialogs
             }
         }
 
-        private async Task ResumeAfterQuestionnaire(IDialogContext context, IAwaitable<string> result)
+        private async Task ResumeAfterQuestionnaire(IDialogContext context, IAwaitable<string> result) // obligatoire d'avoir une ResumeAfter... (sinon il sait pas quoi faire à la fin du dialogue)
         {
 
             try
